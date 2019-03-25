@@ -1,0 +1,20 @@
+show dbs
+use <dbName>
+show collections
+db.<dbName>.find().pretty()
+-- create a new database
+use <newDBName>
+use examples
+db.cars.insert({name:'honda',model:'accord',year:'2017'})
+show collections
+db.cars.find().pretty()
+db.cars.update({name:'honda'},{$set:{ name:'ford'}})
+db.cars.update({name:'ford'},{$set:{model:'civic',year:'2016'}})
+db.cars.update({name:'ford'},{$set:{transmission:'auto'}},{$upsert:'true'})
+db.cars.update({name:'ford'},{$set:{gear:'auto'}},{$upsert:'false'}) -- same as above no change it will add a new field in the document
+db.cars.remove({})
+
+
+
+
+db.getCollection('transaction').find({"ExecuteProcess.Version":"Version_Without_SetUpDirectory_v2"})
